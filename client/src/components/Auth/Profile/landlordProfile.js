@@ -26,7 +26,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/landlord/profile/${userId}`, {
+        const response = await axios.get(`api/landlord/profile/${userId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -59,7 +59,7 @@ const ProfilePage = () => {
       const formData = new FormData();
       formData.append('profilePhoto', profilePhoto);
   
-      const response = await axios.post(`http://localhost:5000/api/upload/landlord/profile/photo/${userId}`, formData, {
+      const response = await axios.post(`api/upload/landlord/profile/photo/${userId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -89,7 +89,7 @@ const ProfilePage = () => {
     event.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/landlord/profile/${userId}`,
+        `api/landlord/profile/${userId}`,
         updatedData,
         {
           headers: {
@@ -147,7 +147,7 @@ const ProfilePage = () => {
 
   const deleteAccount = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/landlord/profile/${userEmail}`, {
+      const response = await axios.delete(`api/landlord/profile/${userEmail}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

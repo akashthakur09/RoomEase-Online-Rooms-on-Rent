@@ -11,7 +11,7 @@ const RoomRequests = () => {
   useEffect(() => {
     const fetchRoomRequests = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/request/all/${userId}`, {
+        const response = await axios.get(`api/request/all/${userId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -28,7 +28,7 @@ const RoomRequests = () => {
 
   const updateStatusOfRoom = async (requestId, status) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/request/${requestId}`, { status }, {
+      const response = await axios.put(`api/request/${requestId}`, { status }, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
