@@ -1,0 +1,149 @@
+.nav {
+  
+    background-color: #f20674;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+  }
+.nav-list li a.active {
+    position: relative;
+    color: #f7f5f6; 
+  }
+  
+  .nav-list li a.active::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fdfcfc; /* Change underline color */
+  }
+  
+  
+  .nav-list li a {
+    display: block;
+    color: #f8f5f5;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s; /* Add color transition */
+  }
+  
+  .nav-list li a:hover {
+    color: #fbf9fa;
+  }
+  
+  .nav-logo {
+    font-size: 25px;
+    font-weight: bold;
+    color:  #faf6f8;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-list li {
+    /* margin-right: 20px; */
+    margin: 10px 20px;
+    position: relative;
+  }
+  
+  .nav-list li a {
+    display: block;
+    color: #0b0b0b;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .nav-list li a::before {
+    content: "";
+    position: absolute;
+    bottom: -3px; /* Adjust this value to control the distance from the text */
+    left: 0;
+    width: 0;
+    height: 2px; /* Underline height */
+    background-color: #fffdfe;
+    transition: width 0.3s ease-out; /* Animation transition */
+  }
+  
+  .nav-list li a:hover::before {
+    width: 100%; /* Expand the underline on hover */
+  }
+  
+  .nav-signin {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #0b0b0b;
+    background:none;
+    /* font-weight: bold; */
+    font-size: 17px; 
+    border: none; 
+    
+  }
+  .btn{
+    text-decoration: none;
+    color: #f7f5f6;
+  }
+  .nav-signin:hover {
+    color: #faf8f9;
+    cursor: pointer;
+  }
+
+  .nav-signup {
+    margin-right: 20px;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: #efe9e9;
+    background:#f55f9b;
+    
+    font-size: 16px; 
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .nav-signup:hover {
+    color:  #f20674;
+    cursor: pointer;
+  }
+  
+
+
+
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; 
+  transition: background-color 0.3s; 
+  background-color: rgba(242, 6, 116, 0.9); 
+}
+
+.nav-fixed .nav-list li a {
+  color: #090909; 
+}
+
+.nav-fixed .nav-list li a.active {
+  color: #fff; 
+}
+
+@media screen and (max-width: 600px) {
+  /* Add responsive styles here if needed */
+}
+
+  
+  

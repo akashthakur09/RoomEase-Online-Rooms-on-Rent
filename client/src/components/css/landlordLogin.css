@@ -1,0 +1,52 @@
+.loginBox{
+    width: 100vw;
+    height: 100vh;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.para{
+    text-align: center;
+}
+a:link{
+    color: rgb(8, 8, 237);
+}
+.first{
+    display: flex;
+    /* border: 1px solid red; */
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+
+}
+.MyAppLogo{
+    border: 1px solid rgb(252, 12, 108);
+    padding: 40px 10px;
+    background-color: rgb(144, 246, 246);
+    border-radius: 100px;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }

@@ -1,0 +1,21 @@
+.button_common {
+    background-color: #f20674;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: 22px;
+    border-radius: 15px;
+    margin: 1rem;
+    width: 90%;
+}
+.button_common:hover{
+    cursor: pointer;
+    background-color: rgb(251, 48, 136);
+}
+.error {
+    color: red;
+    text-align: left;
+    margin: auto;
+    font-size: 16px;
+    padding: 0px 1rem;
+}
