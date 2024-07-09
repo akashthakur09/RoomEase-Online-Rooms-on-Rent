@@ -39,7 +39,7 @@ const ExploreRoom = () => {
     };
 
     fetchRooms();
-  }, [selectedCity, selectedRoomType]);
+  }, []);
 
   const handleCityChange = (city) => {
     setSelectedCity(city);
@@ -80,10 +80,10 @@ const ExploreRoom = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('Rooms state updated:', rooms);
+  // useEffect(() => {
+  //   console.log('Rooms state updated:', rooms);
     
-  }, [rooms]);
+  // }, [rooms]);
 
   return (
     <div>
