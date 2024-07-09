@@ -94,7 +94,7 @@ router.put('/user/:id', validateToken, upload.array('photos', 5), async (req, re
   }
 });
 
-router.get('/all',validateToken, async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
     const { city, type } = req.query;
 
