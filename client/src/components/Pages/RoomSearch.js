@@ -15,7 +15,7 @@ const ExploreRoom = () => {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    setRooms([])
+
     const fetchRooms = async () => {
       try {
         let url = "api/room/all";
@@ -29,8 +29,15 @@ const ExploreRoom = () => {
         }
 
         const response = await axios.get(url);
-        setRooms(response.data);
         
+        console.log('Fetched Rooms Data:', response.data);
+
+        if (Array.isArray(response.data)) {
+          setRooms(response.data);
+        } else {
+          console.error("Unexpected response format:", response.data);
+          setRooms([]);
+        }
       } catch (error) {
         setError(error.message);
       } finally {
@@ -82,7 +89,6 @@ const ExploreRoom = () => {
 
   useEffect(() => {
     console.log('Rooms state updated:', rooms);
-    
   }, [rooms]);
 
   return (
@@ -96,7 +102,6 @@ const ExploreRoom = () => {
               <option value=''>All Cities</option>
               <option value='indore'>Indore</option>
               <option value='bhopal'>Bhopal</option>
-              {/* Add more options for other cities */}
             </select>
           </div>
 
@@ -116,9 +121,8 @@ const ExploreRoom = () => {
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
-          <div className='room-list'>
+          <div className='room-list'>  
             {rooms.map((room) => (
-              // Ensure that room.id is defined and unique
               <div className='room-card' key={room._id}>
                 <div className='forImage'>
                   <img src={SharingRoomPhoto} alt="Room" className="Room-photo" />
