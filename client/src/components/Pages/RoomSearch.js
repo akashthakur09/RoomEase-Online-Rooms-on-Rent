@@ -90,11 +90,7 @@ const ExploreRoom = () => {
   useEffect(() => {
     console.log('Rooms state updated:', rooms);
   }, [rooms]);
-  const func = () => {
-    let roomArray = [...rooms];
-    
-    return roomArray;
-  };
+
   return (
     <div>
       <Navbar />
@@ -126,7 +122,7 @@ const ExploreRoom = () => {
           <p>Error: {error}</p>
         ) : (
           <div className='room-list'>  
-            {func().map((room) => (
+            {rooms.map((room) => (
               <div className='room-card' key={room._id}>
                 <div className='forImage'>
                   <img src={SharingRoomPhoto} alt="Room" className="Room-photo" />
