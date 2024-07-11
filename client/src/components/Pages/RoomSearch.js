@@ -18,7 +18,7 @@ const ExploreRoom = () => {
 
     const fetchRooms = async () => {
       try {
-        let url = "api/room/all";
+        let url = "/api/room/all";
         if (selectedCity || selectedRoomType) {
           url += "?";
           if (selectedCity) url += `city=${selectedCity}`;
@@ -29,16 +29,24 @@ const ExploreRoom = () => {
         }
 
         const response = await axios.get(url);
-        
+
         console.log('Fetched Rooms Data:', response.data);
 
-        if (Array.isArray(response.data)) {
-          setRooms(response.data);
+        if (response.headers['content-type'].includes('application/json')) {
+          if (Array.isArray(response.data)) {
+            setRooms(response.data);
+          } else {
+            console.error("Unexpected response format:", response.data);
+            setError("Unexpected response format");
+            setRooms([]);
+          }
         } else {
           console.error("Unexpected response format:", response.data);
+          setError("Unexpected response format");
           setRooms([]);
         }
       } catch (error) {
+        console.error("Error fetching data:", error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -61,7 +69,7 @@ const ExploreRoom = () => {
     const status = "pending";
 
     try {
-      const roomResponse = await axios.get(`api/room/${roomId}`, {
+      const roomResponse = await axios.get(`/api/room/${roomId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -69,7 +77,7 @@ const ExploreRoom = () => {
 
       const roomData = roomResponse.data;
 
-      const response = await axios.post("api/request/create", {
+      const response = await axios.post("/api/request/create", {
         tenant: userId,
         room: roomId,
         status: status,

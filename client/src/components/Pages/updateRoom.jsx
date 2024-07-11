@@ -19,7 +19,14 @@ const UpdateRoom = () => {
             Authorization: `Bearer ${token}` // Include JWT token in the request headers
           }
         });
-        setUserRooms(response.data);
+
+        if (Array.isArray(response.data)) {
+          setUserRooms(response.data);
+        } else {
+          console.error("Unexpected response format:", response.data);
+          setUserRooms([]);
+        }
+        
       } catch (error) {
         console.error('Error fetching data:', error); // Handle fetch error
       }

@@ -48,7 +48,7 @@ const RoomRequests = () => {
   };
 
   useEffect(() => {
-    console.log('Rooms state updated:', requests);
+    console.log('Requests state updated:', requests);
   }, [requests]);
 
   return (
