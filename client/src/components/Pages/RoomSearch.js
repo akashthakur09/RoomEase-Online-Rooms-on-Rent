@@ -30,7 +30,7 @@ const ExploreRoom = () => {
 
         const response = await axios.get(url);
         
-        console.log('Fetched Rooms Data:', response.data);
+        console.log('Fetched Rooms Dataa:', response.data);
 
         if (Array.isArray(response.data)) {
           setRooms(response.data);
