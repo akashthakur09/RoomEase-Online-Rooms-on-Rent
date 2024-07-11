@@ -18,7 +18,7 @@ const ExploreRoom = () => {
 
     const fetchRooms = async () => {
       try {
-        let url = "api/room/all";
+        let url = "/api/room/all";
         if (selectedCity || selectedRoomType) {
           url += "?";
           if (selectedCity) url += `city=${selectedCity}`;
