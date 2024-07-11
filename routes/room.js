@@ -104,7 +104,7 @@ router.get('/all', async (req, res) => {
     if (type) query = {...query, type };
 
     const rooms = await Room.find(query);
-
+    
     res.status(200).json(rooms);
   } catch (error) {
     console.error(error);
