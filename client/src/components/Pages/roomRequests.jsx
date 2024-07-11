@@ -16,8 +16,14 @@ const RoomRequests = () => {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-
-        setRequests(response.data);
+        
+        if (Array.isArray(response.data)) {
+          setRequests(response.data);
+        } else {
+          console.error("Unexpected response format:", response.data);
+          setRequests([]);
+        }
+        
       } catch (error) {
         console.error('Error fetching room requests:', error);
       }
@@ -40,6 +46,10 @@ const RoomRequests = () => {
       console.error('Error updating room status:', error);
     }
   };
+
+  useEffect(() => {
+    console.log('Rooms state updated:', requests);
+  }, [requests]);
 
   return (
     <div>
